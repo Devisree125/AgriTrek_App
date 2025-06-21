@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#145F17"
+                app:title="AgriTrek"
+                app:titleTextColor="#FFFFFF"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                 />
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Geolocation Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/geolocationCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="6dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@drawable/gradient_background"
+                            android:padding="16dp">
+
+                            <!-- Weather Icon -->
+                            <ImageView
+                                android:id="@+id/ivWeatherIcon"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/img_27"
+                                android:contentDescription="Weather Icon" />
+
+                            <!-- Location and Weather Text -->
+                            <TextView
+                                android:id="@+id/tvLocation"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Fetching weather..."
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="8dp" />
+
+                            <!-- Secondary Info -->
+                            <TextView
+                                android:id="@+id/tvWeatherDetails"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tap to enable geolocation and get weather updates."
+                                android:textColor="#E0F2F1"
+                                android:textSize="14sp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="4dp" />
+
+                            <!-- Progress Indicator -->
+                            <ProgressBar
+                                android:id="@+id/progressBarWeather"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center_horizontal"
+                                android:visibility="gone"
+                                android:layout_marginTop="8dp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="2"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:alignmentMode="alignMargins"
+                        android:useDefaultMargins="true">
+
+                        <!-- Identify -->
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/btnIdentify"
+                            android:layout_width="0dp"
+                            android:layout_height="160dp"
+                            android:layout_margin="8dp"
+                            android:layout_columnWeight="1"
+                            app:cardElevation="6dp"
+                            app:cardCornerRadius="16dp"
+                            android:clickable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:backgroundTint="#66BB6A">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:src="@drawable/img" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Identify"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#FFFFFF"
+                                    android:layout_marginTop="8dp"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <!-- Diagnose -->
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/btnDiagnose"
+                            android:layout_width="0dp"
+                            android:layout_height="160dp"
+                            android:layout_margin="8dp"
+                            android:layout_columnWeight="1"
+                            app:cardElevation="6dp"
+                            app:cardCornerRadius="16dp"
+                            android:clickable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:backgroundTint="#FFB74D">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:src="@drawable/img_3" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Diagnose"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#FFFFFF"
+                                    android:layout_marginTop="8dp"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <!-- Reminder -->
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/btnReminder"
+                            android:layout_width="0dp"
+                            android:layout_height="160dp"
+                            android:layout_margin="8dp"
+                            android:layout_columnWeight="1"
+                            app:cardElevation="6dp"
+                            app:cardCornerRadius="16dp"
+                            android:clickable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:backgroundTint="#AED581">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:src="@drawable/img_2" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Reminder"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#000000"
+                                    android:layout_marginTop="8dp"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <!-- Disease -->
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/btnDisease"
+                            android:layout_width="0dp"
+                            android:layout_height="160dp"
+                            android:layout_margin="8dp"
+                            android:layout_columnWeight="1"
+                            app:cardElevation="6dp"
+                            app:cardCornerRadius="16dp"
+                            android:clickable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:backgroundTint="#A5D6A7">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:src="@drawable/img_4" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Disease"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#000000"
+                                    android:layout_marginTop="8dp"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </GridLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tvWatermark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tanya"
+            android:textColor="#051442"
+            android:textSize="24sp"
+            android:rotation="315"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:alpha="0.5" />
+    </FrameLayout>
+
+    <!-- Navigation Drawer -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/white"
+        app:menu="@menu/drawer_menu"
+        app:headerLayout="@layout/nav_header" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
+
+
+
+
+
+
+
+
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    android:id="@+id/drawer_layout"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent">-->
+
+<!--    &lt;!&ndash; Main Content &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:orientation="vertical"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+<!--        &lt;!&ndash; Toolbar &ndash;&gt;-->
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/toolbar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="?attr/actionBarSize"-->
+<!--            android:background="#145F17"-->
+<!--            app:title="AgriTrek"-->
+<!--            app:titleTextColor="#FFFFFF"-->
+<!--            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
+<!--            app:menu="@menu/top_app_bar_menu" />-->
+
+<!--        &lt;!&ndash; Scrollable Content &ndash;&gt;-->
+<!--        <ScrollView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:background="#FFFFFF"-->
+<!--            android:fillViewport="true">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:padding="16dp">-->
+
+<!--                &lt;!&ndash; Geolocation Card &ndash;&gt;-->
+<!--                &lt;!&ndash; Geolocation Card &ndash;&gt;-->
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:id="@+id/geolocationCard"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginBottom="16dp"-->
+<!--                    app:cardCornerRadius="16dp"-->
+<!--                    app:cardElevation="6dp"-->
+<!--                    android:clickable="true"-->
+<!--                    android:focusable="true">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:background="@drawable/gradient_background"-->
+<!--                        android:padding="16dp">-->
+
+<!--                        &lt;!&ndash; Weather Icon &ndash;&gt;-->
+<!--                        <ImageView-->
+<!--                            android:id="@+id/ivWeatherIcon"-->
+<!--                            android:layout_width="48dp"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:layout_gravity="center_horizontal"-->
+<!--                            android:src="@drawable/img_27"-->
+<!--                            android:contentDescription="Weather Icon" />-->
+
+<!--                        &lt;!&ndash; Location and Weather Text &ndash;&gt;-->
+<!--                        <TextView-->
+<!--                            android:id="@+id/tvLocation"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Fetching weather..."-->
+<!--                            android:textColor="#FFFFFF"-->
+<!--                            android:textSize="18sp"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:layout_gravity="center_horizontal"-->
+<!--                            android:layout_marginTop="8dp" />-->
+
+<!--                        &lt;!&ndash; Secondary Info (e.g., Tap Instruction or Temperature Details) &ndash;&gt;-->
+<!--                        <TextView-->
+<!--                            android:id="@+id/tvWeatherDetails"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Tap to enable geolocation and get weather updates."-->
+<!--                            android:textColor="#E0F2F1"-->
+<!--                            android:textSize="14sp"-->
+<!--                            android:layout_gravity="center_horizontal"-->
+<!--                            android:layout_marginTop="4dp" />-->
+
+<!--                        &lt;!&ndash; Progress Indicator &ndash;&gt;-->
+<!--                        <ProgressBar-->
+<!--                            android:id="@+id/progressBarWeather"-->
+<!--                            android:layout_width="24dp"-->
+<!--                            android:layout_height="24dp"-->
+<!--                            android:layout_gravity="center_horizontal"-->
+<!--                            android:visibility="gone"-->
+<!--                            android:layout_marginTop="8dp" />-->
+<!--                    </LinearLayout>-->
+<!--                </androidx.cardview.widget.CardView>-->
+
+<!--                &lt;!&ndash; Grid Buttons with Icons &ndash;&gt;-->
+<!--                <GridLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:columnCount="2"-->
+<!--                    android:layout_marginTop="8dp"-->
+<!--                    android:layout_marginBottom="16dp"-->
+<!--                    android:alignmentMode="alignMargins"-->
+<!--                    android:useDefaultMargins="true">-->
+
+<!--                    &lt;!&ndash; Identify &ndash;&gt;-->
+<!--                    <androidx.cardview.widget.CardView-->
+<!--                        android:id="@+id/btnIdentify"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="160dp"-->
+<!--                        android:layout_margin="8dp"-->
+<!--                        android:layout_columnWeight="1"-->
+<!--                        app:cardElevation="6dp"-->
+<!--                        app:cardCornerRadius="16dp"-->
+<!--                        android:clickable="true"-->
+<!--                        android:foreground="?attr/selectableItemBackground"-->
+<!--                        android:backgroundTint="#66BB6A">-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:gravity="center">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="48dp"-->
+<!--                                android:layout_height="48dp"-->
+<!--                                android:src="@drawable/img" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Identify"-->
+<!--                                android:textSize="18sp"-->
+<!--                                android:textStyle="bold"-->
+<!--                                android:textColor="#FFFFFF"-->
+<!--                                android:layout_marginTop="8dp"/>-->
+<!--                        </LinearLayout>-->
+<!--                    </androidx.cardview.widget.CardView>-->
+
+<!--                    &lt;!&ndash; Diagnose &ndash;&gt;-->
+<!--                    <androidx.cardview.widget.CardView-->
+<!--                        android:id="@+id/btnDiagnose"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="160dp"-->
+<!--                        android:layout_margin="8dp"-->
+<!--                        android:layout_columnWeight="1"-->
+<!--                        app:cardElevation="6dp"-->
+<!--                        app:cardCornerRadius="16dp"-->
+<!--                        android:clickable="true"-->
+<!--                        android:foreground="?attr/selectableItemBackground"-->
+<!--                        android:backgroundTint="#FFB74D">-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:gravity="center">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="48dp"-->
+<!--                                android:layout_height="48dp"-->
+<!--                                android:src="@drawable/img_3" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Diagnose"-->
+<!--                                android:textSize="18sp"-->
+<!--                                android:textStyle="bold"-->
+<!--                                android:textColor="#FFFFFF"-->
+<!--                                android:layout_marginTop="8dp"/>-->
+<!--                        </LinearLayout>-->
+<!--                    </androidx.cardview.widget.CardView>-->
+
+<!--                    &lt;!&ndash; Reminder &ndash;&gt;-->
+<!--                    <androidx.cardview.widget.CardView-->
+<!--                        android:id="@+id/btnReminder"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="160dp"-->
+<!--                        android:layout_margin="8dp"-->
+<!--                        android:layout_columnWeight="1"-->
+<!--                        app:cardElevation="6dp"-->
+<!--                        app:cardCornerRadius="16dp"-->
+<!--                        android:clickable="true"-->
+<!--                        android:foreground="?attr/selectableItemBackground"-->
+<!--                        android:backgroundTint="#AED581">-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:gravity="center">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="48dp"-->
+<!--                                android:layout_height="48dp"-->
+<!--                                android:src="@drawable/img_2" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Reminder"-->
+<!--                                android:textSize="18sp"-->
+<!--                                android:textStyle="bold"-->
+<!--                                android:textColor="#000000"-->
+<!--                                android:layout_marginTop="8dp"/>-->
+<!--                        </LinearLayout>-->
+<!--                    </androidx.cardview.widget.CardView>-->
+
+<!--                    &lt;!&ndash; Disease &ndash;&gt;-->
+<!--                    <androidx.cardview.widget.CardView-->
+<!--                        android:id="@+id/btnDisease"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="160dp"-->
+<!--                        android:layout_margin="8dp"-->
+<!--                        android:layout_columnWeight="1"-->
+<!--                        app:cardElevation="6dp"-->
+<!--                        app:cardCornerRadius="16dp"-->
+<!--                        android:clickable="true"-->
+<!--                        android:foreground="?attr/selectableItemBackground"-->
+<!--                        android:backgroundTint="#A5D6A7">-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:gravity="center">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="48dp"-->
+<!--                                android:layout_height="48dp"-->
+<!--                                android:src="@drawable/img_4" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Disease"-->
+<!--                                android:textSize="18sp"-->
+<!--                                android:textStyle="bold"-->
+<!--                                android:textColor="#000000"-->
+<!--                                android:layout_marginTop="8dp"/>-->
+<!--                        </LinearLayout>-->
+<!--                    </androidx.cardview.widget.CardView>-->
+<!--                </GridLayout>-->
+<!--            </LinearLayout>-->
+<!--        </ScrollView>-->
+<!--    </LinearLayout>-->
+
+
+<!--    &lt;!&ndash; Navigation Drawer &ndash;&gt;-->
+<!--    <com.google.android.material.navigation.NavigationView-->
+<!--        android:id="@+id/navigation_view"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_gravity="start"-->
+<!--        android:background="@android:color/white"-->
+<!--        app:menu="@menu/drawer_menu"-->
+<!--        app:headerLayout="@layout/nav_header" />-->
+
+<!--</androidx.drawerlayout.widget.DrawerLayout>-->
+

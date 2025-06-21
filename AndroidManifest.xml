@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication"
+        tools:targetApi="31">
+        <activity
+            android:name=".P24ExternalDetails"
+            android:exported="true" />
+        <activity
+            android:name=".P24ExternalStorage"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".P23InternalStorage"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".P22SharedPrefernceEx2"
+            android:exported="true" />
+        <activity
+            android:name=".P21SharedPrefernceEx"
+            android:exported="true" />
+        <activity
+            android:name=".P20MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".P19MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".P18DateTimePicker"
+            android:exported="true" />
+        <activity
+            android:name=".P17TimePicker"
+            android:exported="true" />
+        <activity
+            android:name=".P16DatePicker"
+            android:exported="true" />
+        <activity
+            android:name=".P15BatteryLowStatusBroadCastEx"
+            android:exported="true" />
+        <activity
+            android:name=".P11NotificationView"
+            android:exported="false" />
+        <activity
+            android:name=".P13JobSchedule"
+            android:exported="true" />
+        <activity
+            android:name=".p12Alarm"
+            android:exported="true" />
+        <activity
+            android:name=".P11Notification"
+            android:exported="true" />
+        <activity
+            android:name=".P10RemindMeApp"
+            android:exported="false" />
+        <activity
+            android:name=".P9Intent"
+            android:exported="true" />
+        <activity
+            android:name=".P8ScrollView"
+            android:exported="true" />
+        <activity
+            android:name=".p7ToolBar"
+            android:exported="false" />
+        <activity
+            android:name=".P6Footer"
+            android:exported="true" />
+        <activity
+            android:name=".P5CustomToast"
+            android:exported="true" />
+        <activity
+            android:name=".P4Rating"
+            android:exported="true" />
+        <activity
+            android:name=".P3ProgressBar"
+            android:exported="true" />
+        <activity
+            android:name=".P2SlashScreen"
+            android:exported="true" />
+        <activity
+            android:name=".P1ScrollView"
+            android:exported="true" />
+
+        <receiver android:name=".P12AlarmBroadCast" />
+
+        <service
+            android:name=".P13MyJobService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+    </application>
+
+</manifest>
